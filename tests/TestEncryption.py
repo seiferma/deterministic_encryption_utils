@@ -4,7 +4,7 @@ import tempfile
 import shutil
 from encviewfuse.encryption.VirtualFile import VirtualFile
 
-class EncryptionTest(unittest.TestCase):
+class TestEncryption(unittest.TestCase):
 
     class _SaltProviderMock(object):
         def getSaltFor(self, absoluteFilePath):
@@ -13,7 +13,7 @@ class EncryptionTest(unittest.TestCase):
             return '42'
 
     def setUp(self):
-        saltProviderMock = EncryptionTest._SaltProviderMock()
+        saltProviderMock = TestEncryption._SaltProviderMock()
         self.subject = Encryption('abc', saltProviderMock, saltProviderMock)
 
     def testEncryptAndDecryptFilename(self):

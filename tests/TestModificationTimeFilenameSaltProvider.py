@@ -1,21 +1,20 @@
-import importlib, os, unittest
-from encviewfuse.encryption.extensions.NameFilenameSaltProvider import NameFilenameSaltProvider
-baseTestModule = importlib.import_module('SaltProviderTestBase')
-SaltProviderBaseTest = getattr(baseTestModule, 'SaltProviderBaseTest')
+import os, unittest
+from encviewfuse.encryption.extensions.ModificationTimeFilenameSaltProvider import ModificationTimeFilenameSaltProvider
+from tests.SaltProviderTestBase import SaltProviderTestBase
 
-class NameFilenameSaltProviderTest(SaltProviderBaseTest, unittest.TestCase):
+class TestModificationTimeFilenameSaltProvider(SaltProviderTestBase, unittest.TestCase):
 
     def constructSubject(self):
-        return NameFilenameSaltProvider()
-        
+        return ModificationTimeFilenameSaltProvider()
+    
     def getId(self):
-        return 'filename'
+        return 'mtime'
 
     def testGivenSaltForFile(self):
         tmpFile = os.path.join(self.tmpDir, 'afile')
         open(tmpFile, 'a').close()
         salt = self.subject.getSaltFor(tmpFile)
-        self.assertEqual('afile', salt)
+        self.assertEqual(str(os.path.getmtime(tmpFile)), salt)
         
     def testGivenSaltForDirectory(self):
         tmpDir = os.path.join(self.tmpDir, 'adir')

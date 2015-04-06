@@ -1,9 +1,8 @@
-import importlib, os, unittest
+import os, unittest
 from encviewfuse.encryption.extensions.NameFileSaltProvider import NameFileSaltProvider
-baseTestModule = importlib.import_module('SaltProviderTestBase')
-SaltProviderBaseTest = getattr(baseTestModule, 'SaltProviderBaseTest')
+from tests.SaltProviderTestBase import SaltProviderTestBase
 
-class NameFilenameSaltProviderTest(SaltProviderBaseTest, unittest.TestCase):
+class TestNameFilenameSaltProvider(SaltProviderTestBase, unittest.TestCase):
 
     def constructSubject(self):
         return NameFileSaltProvider()

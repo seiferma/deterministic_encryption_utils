@@ -3,7 +3,7 @@ from tempfile import mkdtemp, mktemp
 import shutil
 from abc import abstractmethod, ABCMeta
 
-class SaltProviderBaseTest(object, metaclass=ABCMeta):
+class SaltProviderTestBase(object, metaclass=ABCMeta):
     
     def setUp(self):
         self.tmpDir = mkdtemp()
