@@ -1,8 +1,8 @@
 import unittest,os
-from encviewfuse.encryption.Encryption import Encryption, EncryptionException
+from deterministic_encryption_utils.encryption.Encryption import Encryption, EncryptionException
 import tempfile
 import shutil
-from encviewfuse.encryption.VirtualFile import VirtualFile
+from deterministic_encryption_utils.encryption.VirtualFile import VirtualFile
 
 class TestEncryption(unittest.TestCase):
 

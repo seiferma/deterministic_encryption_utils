@@ -1,5 +1,5 @@
 import os, unittest
-from encviewfuse.encryption.extensions.ModificationTimeFileSaltProvider import ModificationTimeFileSaltProvider
+from deterministic_encryption_utils.encryption.extensions.ModificationTimeFileSaltProvider import ModificationTimeFileSaltProvider
 from tests.SaltProviderTestBase import SaltProviderTestBase
 
 class TestModificationTimeFileSaltProvider(SaltProviderTestBase, unittest.TestCase):

@@ -1,12 +1,12 @@
 from Crypto.Hash import SHA256
 from Crypto.Cipher import AES
-from encviewfuse.encryption import Padding
+from deterministic_encryption_utils.encryption import Padding
 import base64
 import os
 import binascii
 from builtins import str, isinstance
 from math import ceil
-from encviewfuse.encryption.VirtualFile import VirtualFile
+from deterministic_encryption_utils.encryption.VirtualFile import VirtualFile
 
 class EncryptionException(Exception):
     def __init__(self, value):

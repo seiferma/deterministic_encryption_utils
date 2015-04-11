@@ -1,5 +1,5 @@
 import os
-from encviewfuse.encryption.EncryptionExtensions import FilenameSaltProvider
+from deterministic_encryption_utils.encryption.EncryptionExtensions import FilenameSaltProvider
 
 class NameFilenameSaltProvider(FilenameSaltProvider):
     

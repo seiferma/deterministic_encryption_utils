@@ -1,5 +1,5 @@
 import os, unittest
-from encviewfuse.encryption.extensions.NameFileSaltProvider import NameFileSaltProvider
+from deterministic_encryption_utils.encryption.extensions.NameFileSaltProvider import NameFileSaltProvider
 from tests.SaltProviderTestBase import SaltProviderTestBase
 
 class TestNameFilenameSaltProvider(SaltProviderTestBase, unittest.TestCase):

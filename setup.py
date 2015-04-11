@@ -8,11 +8,11 @@ with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
     long_description = f.read()
 
 setup(
-    name='encviewfuse.commons',
-    version='0.2.7',
+    name='deterministic_encryption_utils',
+    version='0.3.0',
     description='Common encryption utilities for the implementation of simple encryption/decryption views.',
     long_description=long_description,
-    url='https://github.com/seiferma/encviewfuse.commons',
+    url='https://github.com/seiferma/deterministic_encryption_utils',
     author='Stephan Seifermann',
     author_email='seiferma@t-online.de',
     license='MIT',
@@ -28,6 +28,5 @@ setup(
     ],
     keywords='encryption view decryption library',
     packages=find_packages(exclude=['contrib', 'docs', 'tests*']),
-    install_requires=['pycrypto'],
-    namespace_packages = ['encviewfuse']
+    install_requires=['pycrypto']
 )

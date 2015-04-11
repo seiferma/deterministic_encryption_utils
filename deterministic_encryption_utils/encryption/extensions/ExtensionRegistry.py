@@ -1,5 +1,5 @@
-from encviewfuse.encryption.EncryptionExtensions import FileSaltProvider, FilenameSaltProvider
-from encviewfuse.encryption.extensions import * # Necessary for finding subclasses
+from deterministic_encryption_utils.encryption.EncryptionExtensions import FileSaltProvider, FilenameSaltProvider
+from deterministic_encryption_utils.encryption.extensions import * # Necessary for finding subclasses
 
 class ExtensionRegistry(object):
     
