@@ -17,4 +17,4 @@ deploy:
     condition: $TRAVIS_PYTHON_VERSION = '3.3'
 after_deploy:
   - git clone https://github.com/seiferma/travis-utils.git
-  - python travis-utils/validate_pypi.py -v -b $TRAVIS_BRANCH || exit 1
+  - python travis-utils/validate_pypi.py -v || exit 1
