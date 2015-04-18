@@ -7,6 +7,8 @@ class VirtualFile(object):
         if not os.path.isfile(absRootPath):
             raise ValueError('The given path "{0}" has to point to an existing file.'.format(absRootPath))
         self.absRootPath = absRootPath
+        if os.name == 'nt':
+            flags = flags | os.O_BINARY
         self.fd = os.open(absRootPath, flags)
         self.lock = Lock()
         self.encryptionDictionary = dict()
