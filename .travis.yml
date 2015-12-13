@@ -6,15 +6,16 @@ python:
 install:
 - pip install .
 script: nosetests
+before_deploy:
+- git clone https://github.com/seiferma/travis-utils.git
 deploy:
-  provider: pypi
-  server: https://pypi.python.org/pypi
-  user: seiferma
-  password:
-    secure: BQpwKPokH5b6+ATEHd68b3AySoe6tIFTaLFZhR5pOU21weHnRcpYF9l2+owv6Db7ynhJ6XSyWuVwNQU5MXe0cp2/YZMrPr63spQe9mNaZieQb/AAL3y3tLQRjd3SCBq8853fIRaWWmnJ2Tr4eetfbr9IAPWD3EPPq+3aqCnmLoI=
+  provider: script
+  script: travis-utils/python_deploy.sh
   on:
     tags: true
-    condition: $TRAVIS_PYTHON_VERSION = '3.2'
-after_deploy:
-  - git clone https://github.com/seiferma/travis-utils.git
-  - python travis-utils/validate_pypi.py -v || exit 1
+    condition: $TRAVIS_PYTHON_VERSION = '3.3'
+env:
+  global:
+  - DEPLOY_URL=https://pypi.python.org/pypi
+  - DEPLOY_USER=seiferma
+  - secure: "a0CKoG+k5Szzjrdd+DT5jZd0XM2EwS18/lcZ95duQuzWnxJBmma7l9gXZY8XvJmEJgkGwEBXG2Hmha7Yw+VVWShNIVf1Yv8hyDXrztB+aLDWCA+Giybef9m20tHBQvcLqJDiuU89wl/DG00+Iy+F3IBzv56DDVKGWUclwpapDgs="
